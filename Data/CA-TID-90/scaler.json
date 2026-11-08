@@ -1,0 +1,25 @@
+{
+  "method": "global_per_channel_zscore",
+  "fit_split": "Train",
+  "ddof": 0,
+  "channel_order": [
+    "speed",
+    "occupancy",
+    "flow"
+  ],
+  "train_samples": 252045,
+  "window_minutes": 90,
+  "mean": [
+    61.84222307979496,
+    0.06439322586254739,
+    211.11697933129224
+  ],
+  "std": [
+    10.013609524906697,
+    0.06225011903984153,
+    166.94821997087303
+  ],
+  "arithmetic_dtype": "float64",
+  "output_dtype": "float32",
+  "batch_rows": 8192
+}
