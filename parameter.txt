@@ -1,0 +1,71 @@
+# Edit this file, then run: .\run.ps1
+# Use "parameter = value". Separate list values with spaces or commas.
+# Paths are relative to this file. Leave optional values blank.
+
+# Data and execution
+# experiment: comparison, sensitivity, or ablation
+experiment = comparison
+data_root = Data
+output =
+device = cuda
+cpu_threads = 2
+seeds = 1 2 3 4 5
+windows = 90 120
+noise_rates = 0.0 0.2 0.4
+# Leave methods blank to run all methods for the selected experiment.
+methods =
+
+# Model
+width = 128
+heads = 8
+layers = 3
+# Leave ffn_dim blank to use twice the Transformer width.
+ffn_dim =
+dropout = 0.1
+hmm_states = 6
+baseline_alpha = 0.5
+additive_beta = 0.5
+fit_samples = 10000
+
+# Training
+hmformer_epochs = 12
+baseline_epochs = 100
+hmformer_batch_size = 1024
+baseline_batch_size = 256
+# Optional overrides for both classifier epoch limits and batch sizes.
+epochs =
+batch_size =
+lr = 0.0005
+weight_decay = 0.01
+beta1 = 0.9
+beta2 = 0.999
+eps = 1e-8
+patience = 4
+earliest_stop_epoch = 6
+gradient_clip = 1.0
+baseline_final_lr = 5e-6
+baseline_warmup_epochs = 10
+cpnn_passes = 10
+cpnn_cap = 4096
+
+# HMM and temporal GMM fitting
+hmm_initialization = temporal_gmm_soft_full
+hmm_covariance_type = full
+hmm_covariance_floor = 0.001
+hmm_max_iterations = 5000
+# EM tolerance at 10000 fitting sequences, scaled by actual sample count.
+hmm_tolerance = 0.001
+hmm_batch_size = 256
+cm_max_iterations = 10000
+cm_tolerance = 1e-8
+gmm_max_iterations = 5000
+gmm_tolerance = 1e-8
+gmm_n_init = 1
+gmm_init_params = random_from_data
+gmm_reg_covar = 0.001
+accept_gmm_max_iterations = true
+
+# Sensitivity sweep values
+k_values = 2 4 6 8 10
+alpha_values = 0.1 0.3 0.5 0.7 0.9
+fit_sample_values = 2000 5000 10000 20000 40000
